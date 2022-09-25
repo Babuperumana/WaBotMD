@@ -4,10 +4,10 @@ module.exports = {
    name: 'ytmp4',
    alias: ['ytv','ytvideo'],
    category: 'downloader',
-   desc: 'Download video youtube',
+   desc: 'Download youtube video',
    use: '<link youtube>',
    async exec(msg, sock, args) {
-      if (!ytIdRegex.test(args[0])) return msg.reply("Pastikan link yang kamu input adalah link youtube!")
+      if (!ytIdRegex.test(args[0])) return msg.reply("Make sure your link is a youtube link!")
       try {
         await msg.reply('*Loading . . .*')
         const resol = args[1] ? args[1] : "360p"
