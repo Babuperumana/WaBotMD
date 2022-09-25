@@ -3,7 +3,7 @@ module.exports = {
   category: 'owner',
   desc: 'Spam pesan',
   async exec(msg, sock, args) {
-    if (!args[0]) return msg.reply("Masukkan text dan nomor!")
+    if (!args[0]) return msg.reply("Enter text and number!")
     let text = args.join(' ')
     let txt = text.split('|')
     for (let i = 0; i < txt[1]; i++) {
