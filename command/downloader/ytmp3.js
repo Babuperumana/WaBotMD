@@ -4,10 +4,10 @@ module.exports = {
    name: 'ytmp3',
    alias: ['yta','ytaudio'],
    category: 'downloader',
-   desc: 'Download audio youtube',
-   use: '<link youtube> <resolusi>',
+   desc: 'Download youtube audio',
+   use: '<youtube link> <resolution>',
    async exec(msg, sock, args) {
-      if (!ytIdRegex.test(args[0])) return msg.reply("Pastikan link yang kamu input adalah link youtube!")
+      if (!ytIdRegex.test(args[0])) return msg.reply("Make sure your link is a youtube link!")
      try {
         await msg.reply('*Loading . . .*')
         const resol = args[1] ? args[1] : "128kbps"
@@ -16,7 +16,7 @@ module.exports = {
         sock.sendFileFromUrl(msg.from, thumb, `*YOUTUBE AUDIO*\n\n${String.fromCharCode(8206).repeat(4001)}${JSON.stringify(res, null, 2)}`, msg)
         sock.sendMessage(
         msg.from, 
-        { audio: { url: dl_link }, mimetype: 'audio/mp4', contextInfo: { externalAdReply: { title: title, body: 'Play audio youtube', thumbnailUrl: thumb, mediaType: 2, mediaUrl: args[0] }}}
+        { audio: { url: dl_link }, mimetype: 'audio/mp4', contextInfo: { externalAdReply: { title: title, body: 'Play youtube audio', thumbnailUrl: thumb, mediaType: 2, mediaUrl: args[0] }}}
         )
       } catch (e) {
           msg.reply(e.message)
